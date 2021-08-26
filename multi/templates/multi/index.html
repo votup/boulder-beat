@@ -1,0 +1,42 @@
+{% extends 'multi/base.html' %}
+{% load static %}
+{% block title %}Boulder Beat Candidate Quiz{% endblock %}
+
+{% block body %}
+<div class="container-md px-3">
+  <!-- Election -->
+  {% if election %}
+
+  <!-- Question -->
+  {% for question in questions %}
+  <div id="questionContainer" class="question-container">
+    <h6 class="text-weight-normal gray-400">{{ question.id }} of {{ questions|length }}</h6 class="text-weight-normal">
+    <h2 class="mb-3">{{ question }}</h2>
+
+    <!-- Response -->
+    <div class="d-grid gap-row-2">
+      {% for response in question.response_question.all %}
+      <div id="responseWrapper" class="radio-group">
+        <input type="radio" id="response-{{ response.id }}" data-question="{{ question.id }}"
+          name="{{ question.phrase }}" value="{{ response.phrase }}">
+        <label for="response-{{ response.id }}">
+          <div class="response">
+            <p>{{ response.phrase }}</p>
+          </div>
+        </label>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Candidate -->
+    <div id="candidate-{{ question.id }}" class="mt-5 px-1 d-grid gap-row-1" data-question="{{ question.id }}">
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <!-- Result -->
+  <div id="quizResult" class="quiz-result"></div>
+
+</div>
+{% endblock %}

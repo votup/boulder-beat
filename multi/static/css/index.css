@@ -1,0 +1,154 @@
+:root {
+  --bg-body-color: rgb(225, 236, 240);
+  --bg-response-color: rgba(90, 69, 255, 0.1);
+  --bg-response-hover-color: rgba(91, 69, 255, 0.2);
+  --bg-response-checked-color: rgba(91, 69, 255, 0.3);
+  --font-body-size: 18px;
+  --font-body-family: Time New Roman, serif;
+  --font-response-color: rgb(46, 32, 150);
+  --border-radius-response: 8px;
+  --border-radius-candidate-profile: 16px;
+  --link-hover-color: rgb(80, 58, 249);
+  --menu-color: #7a7a7b;
+}
+
+body {
+  background-color: var(--bg-body-color);
+  font-size: var(--font-body-size);
+}
+
+p {
+  font-family: var(--font-body-family);
+  color: var(--font-response-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Header */
+.header-logo {
+  max-height: 40px;
+}
+.menu {
+  font-size: 16px;
+  color: var(--menu-color);
+}
+
+.question-container:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.question-container {
+  border-radius: 16px;
+  background-color: white;
+  padding: 24px;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  background-color: var(--bg-response-checked-color);
+}
+
+.radio-group label {
+  display: grid;
+  cursor: pointer;
+  background-color: var(--bg-response-color);
+  padding: 8px;
+  border-radius: var(--border-radius-response);
+}
+
+.radio-group label:hover, .radio-group label:active {
+  background-color: var(--bg-response-hover-color);
+}
+
+.radio-group label .response {
+  padding: 8px 4px;
+}
+
+.candidate-profile-img {
+  max-width: 100px;
+  border-radius: var(--border-radius-candidate-profile);
+}
+
+.candidate-profile-name {
+  text-align: center;
+  font-size: 14px;
+  color: var(--font-response-color);
+}
+
+/* Quiz Results */
+.quiz-result {
+  display: grid;
+  row-gap: 4px;
+  margin: 32px 0;
+}
+.result-wrappers {
+  display: grid;
+  row-gap: 4px;
+}
+.result-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  background: var(--bg-response-color);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-response);
+}
+.result-profile-img {
+  max-width: 60px;
+  border-radius: var(--border-radius-candidate-profile);
+}
+.result-profile-name h3, .result-profile-name p{
+  font-size: 14px;
+  margin-bottom: 0;
+  color: var(--font-response-color);
+}
+.result-counter {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  color: var(--font-response-color);
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: var(--bg-response-checked-color);
+}
+/* Footer */
+footer {
+  color: var(--menu-color);
+  font-size: 14px;
+}
+
+footer a:hover {
+  color: var(--link-hover-color);
+}
+
+.credit {
+  border-top: 1px solid #29292a;
+  margin-top: 16px;
+  padding-top: 8px;
+}
+
+/* Icons */
+.coco-btn { fill: #7a7a7b; }
+.coco-btn:hover { fill: var(--link-hover-color); }
+.icon-wrapper {
+  position: relative;
+  width: 14px;
+}
+svg.icon-social {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 14px;
+  width: 14px;
+}
+polygon.icon-cocobits {
+  display: inline;
+  fill: none;
+}
+
