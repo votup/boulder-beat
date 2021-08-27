@@ -139,8 +139,6 @@ async function showQuizResult() {
     let wrapper = document.createElement('div'),
         profile_img = document.createElement('img'),
         detail_wrapper = document.createElement('div'),
-        // candidate_name = document.createElement('h1'),
-        // candidate_website = document.createElement('p'),
         counter = document.createElement('div')
 
     // 2. Set attributes
@@ -154,7 +152,6 @@ async function showQuizResult() {
     counter.innerHTML = `<span>${person.count}</span>`
 
     // 3. Append to wrapper
-    // detail_wrapper.append(candidate_name)
     wrapper.append(counter)
     wrapper.append(profile_img)
     wrapper.append(detail_wrapper)

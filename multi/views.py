@@ -1,8 +1,7 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
-from django.db import IntegrityError
+from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Election, Question, Response, Candidate
+from .models import Election, Response
 from .serializers import ResponseSerializer
 
 

@@ -22,14 +22,6 @@ class Candidate(models.Model):
   def image_path(self):
     return f'/media/{self.profile_photo.name}'
 
-  # def serialize(self):
-  #   return {
-  #     'fname': f'{self.f_name}',
-  #     'lname': f'{self.l_name}',
-  #     'photo': self.image_path(),
-  #     'url': self.website
-  #   }
-
 
 class Question(models.Model):
   election = models.ForeignKey(Election, on_delete=models.CASCADE, related_name='question_election')
@@ -49,10 +41,3 @@ class Response(models.Model):
 
   def __str__(self):
     return f'{self.question} {self.phrase}'
-
-  # def serialize(self):
-  #   return {
-  #       'question': f'{self.question}',
-  #       'phrase': f'{self.phrase}',
-  #       'candidate': self.candidate,
-  #   }
