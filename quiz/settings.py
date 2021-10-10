@@ -62,11 +62,11 @@ WSGI_APPLICATION = 'quiz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db', # set in docker-compose
-        'PORT': 5432 #default postgres port
+        'NAME': 'quiz',
+        'USER': 'sandrafish',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '5432' #default postgres port
     }
 }
 
@@ -104,7 +104,7 @@ REST_FRAMEWORK = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Denver'
 
 USE_I18N = True
 

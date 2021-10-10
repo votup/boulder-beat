@@ -11,6 +11,8 @@ psycopg2-binary = "*"
 django-environ = "*"
 pillow = "*"
 djangorestframework = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.8"
