@@ -7,7 +7,7 @@ env = environ.Env(DEBUG=(bool, False))
 env_file = BASE_DIR / '.env'
 environ.Env.read_env(str(env_file))
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY') #env('SECRET_KEY')
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = ['localhost','limitless-sands-79596.herokuapp.com']
 
