@@ -9,7 +9,7 @@ environ.Env.read_env(str(env_file))
 
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','limitless-sands-79596.herokuapp.com']
 
 
 # Application definition
@@ -59,16 +59,18 @@ WSGI_APPLICATION = 'quiz.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'quiz',
-        'USER': 'sandrafish',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '5432' #default postgres port
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'quiz',
+#        'USER': 'sandrafish',
+#        'PASSWORD': '',
+#        'HOST': '127.0.0.1',
+#        'PORT': '5432' #default postgres port
+#    }
+#}
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -125,3 +127,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())

@@ -1,1 +1,1 @@
-web: gunicorn boulder-beat.wsgi
+web: gunicorn quiz.wsgi
