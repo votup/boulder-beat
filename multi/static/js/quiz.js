@@ -39,8 +39,7 @@ async function fetchResponse(rData, qData) {
   candidates.forEach(person => {
 
     // 1. Create elements
-    let body = document.createElement('div'),
-        wrapper = document.createElement('div'),
+    let wrapper = document.createElement('div'),
         profile_img = document.createElement('img'),
         candidate_name = document.createElement('div')
 
@@ -50,6 +49,7 @@ async function fetchResponse(rData, qData) {
     profile_img.setAttribute('class', 'candidate-profile-img')
     candidate_name.setAttribute('id', 'fullName')
     candidate_name.setAttribute('class', 'candidate-profile-name')
+    candidate_name.setAttribute('data-url', `${person.website}`)
     candidate_name.innerHTML = `${person.f_name} ${person.l_name}`
 
     // 3. Append to wrapper
@@ -97,7 +97,9 @@ async function showQuizResult() {
     return {
       "id": element.id,
       "name": element.querySelector('div#fullName').innerHTML,
-      "image": element.querySelector('img').getAttribute('src')
+      "image": element.querySelector('img').getAttribute('src'),
+      // add candidate website (data-url) here
+      "website": element.querySelector('div#fullName').dataset.url
     }
   })
 
@@ -147,7 +149,8 @@ async function showQuizResult() {
     profile_img.setAttribute('alt', `${person.name} photo`)
     profile_img.setAttribute('class', 'result-profile-img')
     detail_wrapper.setAttribute('class', 'result-profile-name')
-    detail_wrapper.innerHTML = `<h3>${person.name}</h3><p>${person.website}</p>`
+    // Candidate website
+    detail_wrapper.innerHTML = `<h3>${person.name}</h3><a href="${person.website}"><p>${person.website.split('//')[1]}</p></a>`
     counter.setAttribute('class', 'result-counter')
     counter.innerHTML = `<span>${person.count}</span>`
 
@@ -165,6 +168,4 @@ async function showQuizResult() {
 
   quizResultContainer.append(resultHeading)
   quizResultContainer.append(allWrapperContent)
-
-
 }
